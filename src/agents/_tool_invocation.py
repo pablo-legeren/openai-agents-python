@@ -285,7 +285,7 @@ def _fingerprint(payload: Mapping[str, Any]) -> str:
         ensure_ascii=False,
         sort_keys=True,
         separators=(",", ":"),
-    ).encode("utf-8")
+    ).encode("utf-8", errors="surrogatepass")
     return hashlib.sha256(encoded).hexdigest()
 
 
